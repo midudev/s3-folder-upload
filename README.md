@@ -2,12 +2,13 @@
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![npm version](https://badge.fury.io/js/s3-folder-upload.svg)](https://badge.fury.io/js/s3-folder-upload)
+[![npm](https://img.shields.io/npm/dm/s3-folder-upload.svg?maxAge=2592000)]()
 
 Little script to upload statics to a S3 bucket.
 
 ## AWS Credentials
 
-In order to use this module, you'll need a file `aws-credentials.json` in the root of your github repository with the keys needed for upload files to the bucket.
+In order to use this module, you'll need a file `aws-credentials.json` in the root of your project with the keys needed for upload files to the bucket.
 
 ## Require
 ```
