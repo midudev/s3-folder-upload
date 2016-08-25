@@ -1,8 +1,8 @@
 'use strict'
 
 const path = require('path')
-const º = require('../lib/output')
-const uploadDirectory = require('../lib/upload-directory')
+const º = require('./lib/output')
+const uploadDirectory = require('./lib/upload-directory')
 
 const DEFAULT_DIRECTORY_NAME = 'statics'
 

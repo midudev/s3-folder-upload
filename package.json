@@ -7,12 +7,14 @@
   "bin": {
     "s3-folder-upload": "./bin/s3-folder-upload.js"
   },
+  "scripts": {
+    "test": "ava"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:miduga/s3-folder-upload.git"
   },
   "author": "Miguel Ángel Durán <miguelangel.duran@scmspain.com>",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/miduga/s3-folder-upload/issues"
   },
@@ -23,6 +25,7 @@
     "log-update": "1.0"
   },
   "devDependencies": {
+    "ava": "^0.16.0",
     "eslint": "3.3.1",
     "eslint-config-standard": "6.0.0",
     "eslint-plugin-promise": "2.0.1",
