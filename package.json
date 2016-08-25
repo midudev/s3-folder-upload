@@ -8,7 +8,7 @@
     "s3-folder-upload": "./bin/s3-folder-upload.js"
   },
   "scripts": {
-    "test": "ava"
+    "test": "./node_modules/.bin/eslint *.js */*.js && ava"
   },
   "repository": {
     "type": "git",
