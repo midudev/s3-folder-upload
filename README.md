@@ -1,10 +1,10 @@
-# s3 upload folder
+# s3 folder upload
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![npm version](https://badge.fury.io/js/s3-folder-upload.svg)](https://badge.fury.io/js/s3-folder-upload)
 [![npm](https://img.shields.io/npm/dm/s3-folder-upload.svg?maxAge=2592000)]()
 
-Little script to upload statics to a S3 bucket.
+Little script to upload statics to a S3 bucket by using official Amazon SDK.
 
 ## AWS Credentials
 
@@ -12,19 +12,19 @@ In order to use this module, you'll need a file `aws-credentials.json` in the ro
 
 ## Require
 ```
-const s3UploadFolder = require('s3-upload-folder')
-// ES6: import s3UploadFolder from 's3-upload-folder'
+const s3UploadFolder = require('s3-folder-upload')
+// ES6: import s3UploadFolder from 's3-folder-upload'
 
 const directoryName = 'statics'
-s3UploadFolder(directoryName)
+s3FolderUpload(directoryName)
 ```
 
 ## CLI
 ```
-s3-upload-folder <folder>
+s3-folder-upload <folder>
 
 Example:
-s3-upload-folder statics
+s3-folder-upload statics
 ```
 
 ## Wish list
