@@ -12,18 +12,18 @@ In order to use this module, you'll need a file `aws-credentials.json` in the ro
 
 ## Install
 
-```
+```bash
 npm install s3-folder-upload -S
 ```
 
 In case you want to use the CLI, you can install it globally:
 
-```
+```bash
 npm install -g s3-folder-upload
 ```
 
 ## Require
-```
+```javascript
 const s3UploadFolder = require('s3-folder-upload')
 // ES6: import s3UploadFolder from 's3-folder-upload'
 
@@ -32,7 +32,7 @@ s3FolderUpload(directoryName)
 ```
 
 ## CLI
-```
+```bash
 s3-folder-upload <folder>
 
 Example:
