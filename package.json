@@ -4,7 +4,7 @@
   "description": "Upload statics to S3 server",
   "main": "index.js",
   "bin": {
-    "s3-folder-upload": "./index.js"
+    "s3-folder-upload": "./bin/s3-folder-upload.js"
   },
   "repository": {
     "type": "git",
