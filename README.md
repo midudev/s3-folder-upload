@@ -10,6 +10,18 @@ Little script to upload statics to a S3 bucket by using official Amazon SDK.
 
 In order to use this module, you'll need a file `aws-credentials.json` in the root of your project with the keys needed for upload files to the bucket.
 
+## Install
+
+```
+npm install s3-folder-upload -S
+```
+
+In case you want to use the CLI, you can install it globally:
+
+```
+npm install -g s3-folder-upload
+```
+
 ## Require
 ```
 const s3UploadFolder = require('s3-folder-upload')
