@@ -9,9 +9,21 @@ Little script to upload statics to a S3 bucket.
 
 In order to use this module, you'll need a file `aws-credentials.json` in the root of your github repository with the keys needed for upload files to the bucket.
 
-## Upload
+## Require
+```
+const s3UploadFolder = require('s3-upload-folder')
+// ES6: import s3UploadFolder from 's3-upload-folder'
+
+const directoryName = 'statics'
+s3UploadFolder(directoryName)
 ```
 
+## CLI
+```
+s3-upload-folder <folder>
+
+Example:
+s3-upload-folder statics
 ```
 
 ## Wish list
