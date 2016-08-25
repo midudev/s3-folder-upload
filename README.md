@@ -1,11 +1,6 @@
-# re-upload-statics
+# s3 upload folder
 
-Little script to upload our statics to the S3 buckets. If you need to use a staitc on the fotocasa.es website you should use this module in order to mantain here all the statics. Also, in the statics folder you'll find all the statics.
-
-## Rules when adding new statics
-* Keep the basic naming convention `(page|component)_(use|description).(ext)` (take a look to the statics folder for examples)
-* Try to be reasonable. If it's an icon, it might be good to use a SVG instead.
-* Optimize assets before uploading them to the bucket.
+Little script to upload statics to a S3 bucket.
 
 ## AWS Credentials
 
@@ -13,7 +8,7 @@ In order to use this module, you'll need a file `aws-credentials.json` in the ro
 
 ## Upload
 ```
-npm run upload
+
 ```
 
 ## Wish list
