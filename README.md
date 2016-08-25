@@ -1,5 +1,8 @@
 # s3 upload folder
 
+[![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+[![npm version](https://badge.fury.io/js/s3-folder-upload.svg)](https://badge.fury.io/js/s3-folder-upload)
+
 Little script to upload statics to a S3 bucket.
 
 ## AWS Credentials
