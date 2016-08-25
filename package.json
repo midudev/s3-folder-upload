@@ -1,0 +1,30 @@
+{
+  "name": "s3-folder-upload",
+  "version": "0.0.1",
+  "description": "Upload statics to S3 server",
+  "main": "index.js",
+  "bin": {
+    "s3-folder-upload": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:miduga/s3-folder-upload.git"
+  },
+  "author": "Miguel Ángel Durán <miguelangel.duran@scmspain.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miduga/s3-folder-upload/issues"
+  },
+  "homepage": "https://github.com/miduga/s3-folder-upload/#readme",
+  "dependencies": {
+    "async": "2.0",
+    "aws-sdk": "2.5",
+    "log-update": "1.0"
+  },
+  "devDependencies": {
+    "eslint": "3.3.1",
+    "eslint-config-standard": "6.0.0",
+    "eslint-plugin-promise": "2.0.1",
+    "eslint-plugin-standard": "2.0.0"
+  }
+}
