@@ -28,7 +28,7 @@ npm install -g s3-folder-upload
 
 ## Require
 ```javascript
-const s3UploadFolder = require('s3-folder-upload')
+const s3FolderUpload = require('s3-folder-upload')
 // ES6: import s3UploadFolder from 's3-folder-upload'
 
 const directoryName = 'statics'
