@@ -59,6 +59,7 @@ For the AWS Credentials you need a ENV variable called `AWS_CREDENTIALS_PATH` wi
 - [x] Async upload of files to improve time
 - [x] Detect automatically the content type of (limited support)
 - [x] Return the list of files uploaded with the final URL
+- [ ] Sub folder support.
 - [ ] Better support for parameters with the CLI
 - [ ] Improve content type function in order to get more and better types of files
 - [ ] Avoid to re-upload files if they didn't change
