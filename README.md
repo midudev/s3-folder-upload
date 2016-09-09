@@ -2,7 +2,7 @@
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![npm version](https://badge.fury.io/js/s3-folder-upload.svg)](https://badge.fury.io/js/s3-folder-upload)
-[![npm](https://img.shields.io/npm/dm/s3-folder-upload.svg?maxAge=2592000)]()
+[![npm](https://img.shields.io/npm/dm/s3-folder-upload.svg?maxAge=2592000)](https://www.npmjs.com/package/s3-folder-upload)
 
 Little script to upload statics to a S3 bucket by using official Amazon SDK.
 
