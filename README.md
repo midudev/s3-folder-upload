@@ -2,7 +2,7 @@
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![npm version](https://badge.fury.io/js/s3-folder-upload.svg)](https://badge.fury.io/js/s3-folder-upload)
-[![npm](https://img.shields.io/npm/dm/s3-folder-upload.svg?maxAge=2592000)]()
+[![npm](https://img.shields.io/npm/dm/s3-folder-upload.svg?maxAge=2592000)](https://www.npmjs.com/package/s3-folder-upload)
 
 Little script to upload statics to a S3 bucket by using official Amazon SDK.
 
@@ -59,6 +59,7 @@ For the AWS Credentials you need a ENV variable called `AWS_CREDENTIALS_PATH` wi
 - [x] Async upload of files to improve time
 - [x] Detect automatically the content type of (limited support)
 - [x] Return the list of files uploaded with the final URL
+- [ ] Sub folder support.
 - [ ] Better support for parameters with the CLI
 - [ ] Improve content type function in order to get more and better types of files
 - [ ] Avoid to re-upload files if they didn't change
