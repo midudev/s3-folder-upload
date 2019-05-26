@@ -56,9 +56,11 @@ s3FolderUpload(directoryName, credentials, options, invalidation)
 ```
 
 ## Options
-`useFoldersForFileTypes` (default: true) - Upload files to a specific subdirectory according to its file type.
+`useFoldersForFileTypes` (default: `true`) - Upload files to a specific subdirectory according to its file type.
 
-`useIAMRoleCredentials` (default: false) - It will ignore all the credentials passed via parameters or environment variables in order to use the instance IAM credentials profile.
+`useIAMRoleCredentials` (default: `false`) - It will ignore all the credentials passed via parameters or environment variables in order to use the instance IAM credentials profile.
+
+`uploadFolder` (default: `undefined`) - If it's specified, the statics will be uploaded to the folder, so if you upload `static.js` to `https://statics.s3.eu-west-1.amazonaws.com` with a `uploadFolder` with value `my-statics` the file will be uploaded to: `https://statics.s3.eu-west-1.amazonaws.com/my-statics/static.js`.
 
 ## CLI
 ```bash
