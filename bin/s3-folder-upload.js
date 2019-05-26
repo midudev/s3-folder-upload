@@ -3,12 +3,22 @@
 'use strict'
 
 const s3FolderUpload = require('../')
-const directory = process.argv[2]
+const buildParameters = require('../lib/build-cli-parameters')
+const log = require('../lib/output')
 
-if (!directory) {
-  console.log(`[warn] You need to specify a directory located on the root.
-  For example: s3-folder-upload statics`)
-  process.exit(1)
-} else {
-  s3FolderUpload(directory)
+try {
+  const parameters = buildParameters({
+    args: process.argv.slice(2),
+    env: process.env
+  })
+  parameters.directories.forEach(directory =>
+    s3FolderUpload(
+      directory,
+      parameters.credentials,
+      parameters.options,
+      parameters.invalidation
+    )
+  )
+} catch (e) {
+  log.error('[error] ' + e.message, true)
 }

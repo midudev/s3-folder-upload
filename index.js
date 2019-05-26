@@ -1,14 +1,52 @@
 'use strict'
 
+const argsParser = require('minimist')
 const path = require('path')
-const º = require('./lib/output')
+const log = require('./lib/output')
 const uploadDirectory = require('./lib/upload-directory')
+const awsCredentials = require('./lib/aws-credentials')
+const awsInvalidationParamenters = require('./lib/aws-invalidation-parameters')
 
 const DEFAULT_DIRECTORY_NAME = 'statics'
+const DEFAULT_OPTIONS = {
+  useFoldersForFileTypes: true,
+  useIAMRoleCredentials: false
+}
 
-module.exports = function (directoryToUpload, credentials) {
+module.exports = function(
+  directoryToUpload,
+  credentials,
+  options,
+  invalidation,
+  filesOptions
+) {
+  // initialize options object with defaults and parameters
+  options = Object.assign({}, DEFAULT_OPTIONS, options)
+  const {useIAMRoleCredentials} = options
+  const processArgs = argsParser(process.argv.slice(2))
+  // create credentials according from the object passed and
+  const awsCredentialsSanitized = awsCredentials.createCredentials({
+    useIAMRoleCredentials,
+    processArgs,
+    credentialsData: credentials,
+    processEnv: process.env
+  })
+
+  const invalidationConfig = awsInvalidationParamenters.createInvalidationConfig(
+    {
+      invalidationData: invalidation,
+      processArgs
+    }
+  )
+
   directoryToUpload = directoryToUpload || DEFAULT_DIRECTORY_NAME
   const directoryPath = path.resolve(directoryToUpload)
-  º.info(`[config] Directory to upload:\n\t ${directoryPath}`)
-  uploadDirectory(directoryPath, credentials)
+  log.info(`[config] Directory to upload:\n\t ${directoryPath}`)
+  uploadDirectory(
+    directoryPath,
+    awsCredentialsSanitized,
+    options,
+    invalidationConfig,
+    filesOptions
+  )
 }
