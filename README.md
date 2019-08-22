@@ -2,7 +2,7 @@
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![npm version](https://badge.fury.io/js/s3-folder-upload.svg)](https://badge.fury.io/js/s3-folder-upload)
-[![npm](https://img.shields.io/npm/dm/s3-folder-upload.svg?maxAge=2592000)](https://www.npmjs.com/package/s3-folder-upload)
+[![npm](https://img.shields.io/npm/dm/s3-folder-upload.svg?maxAge=2592000)]()
 
 Little script to upload statics to a S3 bucket by using official Amazon SDK.
 
@@ -61,6 +61,7 @@ s3FolderUpload(directoryName, credentials, options, invalidation)
 `useIAMRoleCredentials` (default: `false`) - It will ignore all the credentials passed via parameters or environment variables in order to use the instance IAM credentials profile.
 
 `uploadFolder` (default: `undefined`) - If it's specified, the statics will be uploaded to the folder, so if you upload `static.js` to `https://statics.s3.eu-west-1.amazonaws.com` with a `uploadFolder` with value `my-statics` the file will be uploaded to: `https://statics.s3.eu-west-1.amazonaws.com/my-statics/static.js`.
+
 
 ## CLI
 ```bash
