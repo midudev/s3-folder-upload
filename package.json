@@ -4,6 +4,9 @@
   "description": "Upload statics to S3 server",
   "main": "index.js",
   "license": "ISC",
+  "engines": {
+    "node": ">= 12.13.0"
+  },
   "bin": {
     "s3-folder-upload": "./bin/s3-folder-upload.js"
   },
@@ -21,10 +24,10 @@
   },
   "homepage": "https://github.com/miduga/s3-folder-upload/#readme",
   "dependencies": {
-    "async": "2.1.4",
-    "aws-sdk": "2.325.0",
+    "async": "3.1.0",
+    "aws-sdk": "2.584.0",
     "globby": "9.2.0",
-    "log-update": "1.0",
+    "log-update": "3.3.0",
     "minimist": "1.2.0"
   },
   "eslintConfig": {
@@ -33,9 +36,13 @@
     ]
   },
   "devDependencies": {
-    "@s-ui/lint": "2",
+    "@s-ui/lint": "3",
     "chai": "4",
     "mocha": "5",
     "sinon": "4"
+  },
+  "prettier": "./node_modules/@s-ui/lint/.prettierrc.js",
+  "stylelint": {
+    "extends": "./node_modules/@s-ui/lint/stylelint.config.js"
   }
 }
