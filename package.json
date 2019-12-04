@@ -12,6 +12,7 @@
   },
   "scripts": {
     "test": "mocha --recursive \"test/**/*Test.js\"",
+    "release": "np --no-cleanup",
     "lint": "sui-lint js"
   },
   "repository": {
@@ -36,6 +37,7 @@
     ]
   },
   "devDependencies": {
+    "np": "5.2.1",
     "@s-ui/lint": "3",
     "chai": "4",
     "mocha": "5",
