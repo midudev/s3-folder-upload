@@ -95,7 +95,8 @@ describe('Build Parameters', () => {
     const parameters = buildParameters({args: givenArgs, env: givenEnv})
 
     const expectedOptions = {
-      useFoldersForFileTypes: false
+      useFoldersForFileTypes: false,
+      useIAMRoleCredentials: false
     }
     expect(parameters.options, 'options are not as expected').to.deep.equal(
       expectedOptions
