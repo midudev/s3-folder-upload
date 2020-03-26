@@ -1,12 +1,9 @@
 {
   "name": "s3-folder-upload",
-  "version": "2.0.4",
+  "version": "2.1.1",
   "description": "Upload statics to S3 server",
   "main": "index.js",
   "license": "ISC",
-  "engines": {
-    "node": ">= 12.13.0"
-  },
   "bin": {
     "s3-folder-upload": "./bin/s3-folder-upload.js"
   },
@@ -26,15 +23,10 @@
   "homepage": "https://github.com/miduga/s3-folder-upload/#readme",
   "dependencies": {
     "async": "3.1.0",
-    "aws-sdk": "2.584.0",
-    "globby": "9.2.0",
+    "aws-sdk": "2.603.0",
+    "globby": "10.0.1",
     "log-update": "3.3.0",
     "minimist": "1.2.0"
-  },
-  "eslintConfig": {
-    "extends": [
-      "./node_modules/@s-ui/lint/eslintrc.js"
-    ]
   },
   "devDependencies": {
     "np": "5.2.1",
@@ -42,6 +34,11 @@
     "chai": "4",
     "mocha": "5",
     "sinon": "4"
+  },
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/@s-ui/lint/eslintrc.js"
+    ]
   },
   "prettier": "./node_modules/@s-ui/lint/.prettierrc.js",
   "stylelint": {

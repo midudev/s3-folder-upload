@@ -144,7 +144,10 @@ describe('AWS Credentials', () => {
           useIAMRoleCredentials: true
         }),
         'The credentials creation should be undefined as it will be extracted from the IAMRole'
-      ).to.be.undefined
+      ).to.deep.equal({
+        bucket: 'aBucket',
+        region: 'aRegion'
+      })
     })
   })
 })
