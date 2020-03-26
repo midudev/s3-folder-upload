@@ -42,7 +42,7 @@ module.exports = function(
   directoryToUpload = directoryToUpload || DEFAULT_DIRECTORY_NAME
   const directoryPath = path.resolve(directoryToUpload)
   log.info(`[config] Directory to upload:\n\t ${directoryPath}`)
-  uploadDirectory(
+  return uploadDirectory(
     directoryPath,
     awsCredentialsSanitized,
     options,
