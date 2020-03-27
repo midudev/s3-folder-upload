@@ -62,7 +62,6 @@ s3FolderUpload(directoryName, credentials, options, invalidation)
 
 `uploadFolder` (default: `undefined`) - If it's specified, the statics will be uploaded to the folder, so if you upload `static.js` to `https://statics.s3.eu-west-1.amazonaws.com` with a `uploadFolder` with value `my-statics` the file will be uploaded to: `https://statics.s3.eu-west-1.amazonaws.com/my-statics/static.js`.
 
-
 ## CLI
 ```bash
 s3-folder-upload <folder>
@@ -92,6 +91,23 @@ s3-folder-upload statics
 * you can pass the needed info via command line parameters, the invalidation needs both parameters:
     ```bash
     s3-folder-upload <folder> <credentials parameters> --awsDistributionId=<distributionId> --awsInvalidationPath="/js/*"
+
+### Environment Variables
+`S3_FOLDER_UPLOAD_LOG`: You could specify the level of logging for the library.
+* `none`: No logging output
+* `only_errors`: Only errors are logged
+* `all` (default): Errors, progress and useful messages are logged.
+
+Example of use:
+```
+S3_FOLDER_UPLOAD_LOG=only_errors s3-folder-upload <folder>
+```
+
+If you use the library programatically, this ENVIRONEMNT_VARIABLE will be read as well. For example:
+
+```
+S3_FOLDER_UPLOAD_LOG=only_errors node upload-script.js
+```
 
 ## Wish list
 
