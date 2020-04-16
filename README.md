@@ -28,8 +28,8 @@ npx s3-folder-upload
 
 ## Require
 ```javascript
-const s3UploadFolder = require('s3-folder-upload')
-// ES6: import s3UploadFolder from 's3-folder-upload'
+const s3FolderUpload = require('s3-folder-upload')
+// ES6: import s3FolderUpload from 's3-folder-upload'
 
 const directoryName = 'statics'
 // I strongly recommend to save your credentials on a JSON or ENV variables, or command line args
