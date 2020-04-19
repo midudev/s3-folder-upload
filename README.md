@@ -48,8 +48,8 @@ const options = {
 
 // optional cloudfront invalidation rule
 const invalidation = {
-    awsDistributionId: "<Your CloudFront Distribution Id>",
-    awsInvalidationPath: "<The Path to Invalidate>"
+  awsDistributionId: "<Your CloudFront Distribution Id>",
+  awsInvalidationPath: "<The Path to Invalidate>"
 }
 
 s3FolderUpload(directoryName, credentials, options, invalidation)
@@ -61,6 +61,27 @@ s3FolderUpload(directoryName, credentials, options, invalidation)
 `useIAMRoleCredentials` (default: `false`) - It will ignore all the credentials passed via parameters or environment variables in order to use the instance IAM credentials profile.
 
 `uploadFolder` (default: `undefined`) - If it's specified, the statics will be uploaded to the folder, so if you upload `static.js` to `https://statics.s3.eu-west-1.amazonaws.com` with a `uploadFolder` with value `my-statics` the file will be uploaded to: `https://statics.s3.eu-west-1.amazonaws.com/my-statics/static.js`.
+
+Also you could define:
+`ACL` (default: `public-read`)
+`Cache-Control` (default: `public, max-age=31536000`)
+`Expires` (default: `31536000`)
+
+If you use programatically the library, you could overwrite the `ACL`, `Cache-Control` and `Expires` values to file level.
+
+```javascript
+const options = {
+  useFoldersForFileTypes: false,
+  useIAMRoleCredentials: false,
+  filesOptions: {
+    'index.html': {
+      'Cache-Control': 'public, max-age=300'
+    }
+  }
+}
+
+s3FolderUpload(directoryName, credentials, options)
+```
 
 ## CLI
 ```bash
