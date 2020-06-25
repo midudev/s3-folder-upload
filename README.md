@@ -62,10 +62,11 @@ s3FolderUpload(directoryName, credentials, options, invalidation)
 
 `uploadFolder` (default: `undefined`) - If it's specified, the statics will be uploaded to the folder, so if you upload `static.js` to `https://statics.s3.eu-west-1.amazonaws.com` with a `uploadFolder` with value `my-statics` the file will be uploaded to: `https://statics.s3.eu-west-1.amazonaws.com/my-statics/static.js`.
 
-Also you could define:
-`ACL` (default: `public-read`)
-`Cache-Control` (default: `public, max-age=31536000`)
-`Expires` (default: `31536000`)
+`ACL` (default: `public-read`) - It defines which AWS accounts or groups are granted access and the type of access.
+
+`Cache-Control` (default: `public, max-age=31536000`) - HTTP header holds directives (instructions) for caching in both requests and responses.
+
+`Expires` (default: `31536000`) - Header contains the date/time after which the response is considered stale. If there is a Cache-Control header with the max-age or s-maxage directive in the response, the Expires header is ignored.
 
 If you use programatically the library, you could overwrite the `ACL`, `Cache-Control` and `Expires` values to file level.
 
