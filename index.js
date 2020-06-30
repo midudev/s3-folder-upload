@@ -14,7 +14,7 @@ const DEFAULT_OPTIONS = {
 }
 
 module.exports = function(
-  directoryToUpload,
+  directoryToUpload = DEFAULT_DIRECTORY_NAME,
   credentials,
   options,
   invalidation,
@@ -39,9 +39,9 @@ module.exports = function(
     }
   )
 
-  directoryToUpload = directoryToUpload || DEFAULT_DIRECTORY_NAME
   const directoryPath = path.resolve(directoryToUpload)
   log.info(`[config] Directory to upload:\n\t ${directoryPath}`)
+
   return uploadDirectory(
     directoryPath,
     awsCredentialsSanitized,
