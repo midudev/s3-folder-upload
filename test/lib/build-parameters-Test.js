@@ -4,22 +4,16 @@ const errors = require('../../lib/errors')
 
 const buildParameters = require('../../lib/build-cli-parameters')
 const awsCredentials = require('../../lib/aws-credentials')
-const awsInvalidationParameters = require('../../lib/aws-invalidation-parameters')
 
 const validCredentials = require('../resources/valid-aws-credentials.json')
 
 let awsCredentialsStub
-let awsInvalidationParametersStub
 
 describe('Build Parameters', () => {
   beforeEach('Cleaning stubs', () => {
     if (awsCredentialsStub) {
       awsCredentialsStub.restore()
       awsCredentialsStub = undefined
-    }
-    if (awsInvalidationParametersStub) {
-      awsInvalidationParametersStub.restore()
-      awsInvalidationParametersStub = undefined
     }
   })
 
@@ -34,9 +28,6 @@ describe('Build Parameters', () => {
     awsCredentialsStub = sinon
       .stub(awsCredentials, 'createCredentials')
       .returns(validCredentials)
-    awsInvalidationParametersStub = sinon
-      .stub(awsInvalidationParameters, 'createInvalidationConfig')
-      .returns(undefined)
 
     const parameters = buildParameters({args: givenArgs})
 
@@ -63,9 +54,6 @@ describe('Build Parameters', () => {
     awsCredentialsStub = sinon
       .stub(awsCredentials, 'createCredentials')
       .returns(validCredentials)
-    awsInvalidationParametersStub = sinon
-      .stub(awsInvalidationParameters, 'createInvalidationConfig')
-      .returns(undefined)
 
     const parameters = buildParameters({args: givenArgs, env: givenEnv})
 
@@ -88,9 +76,6 @@ describe('Build Parameters', () => {
     awsCredentialsStub = sinon
       .stub(awsCredentials, 'createCredentials')
       .returns(validCredentials)
-    awsInvalidationParametersStub = sinon
-      .stub(awsInvalidationParameters, 'createInvalidationConfig')
-      .returns(undefined)
 
     const parameters = buildParameters({args: givenArgs, env: givenEnv})
 
@@ -101,44 +86,6 @@ describe('Build Parameters', () => {
     expect(parameters.options, 'options are not as expected').to.deep.equal(
       expectedOptions
     )
-  })
-  it('Should create cloudfront invalidation data from process args', () => {
-    const givenArgs = [
-      'dist',
-      '--awsDistributionId=aDistributionId',
-      '--awsInvalidationPath=aPath'
-    ]
-
-    const expectedInvalidation = {
-      distribution: 'aDistributionId',
-      path: 'aPath'
-    }
-
-    awsCredentialsStub = sinon
-      .stub(awsCredentials, 'createCredentials')
-      .returns(validCredentials)
-    awsInvalidationParametersStub = sinon
-      .stub(awsInvalidationParameters, 'createInvalidationConfig')
-      .returns(expectedInvalidation)
-
-    const parameters = buildParameters({args: givenArgs})
-
-    expect(
-      parameters.invalidation,
-      'invalidation is not as expected'
-    ).to.deep.equal(expectedInvalidation)
-    expect(
-      [
-        awsInvalidationParametersStub.lastCall.args[0].processArgs
-          .awsDistributionId,
-        awsInvalidationParametersStub.lastCall.args[0].processArgs
-          .awsInvalidationPath
-      ],
-      'data was not created with expected args'
-    ).to.deep.equal([
-      expectedInvalidation.distribution,
-      expectedInvalidation.path
-    ])
   })
   it('Should fail if no directories are defined', () => {
     const givenArgs = []

@@ -2,13 +2,13 @@
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![npm version](https://badge.fury.io/js/s3-folder-upload.svg)](https://badge.fury.io/js/s3-folder-upload)
-[![npm](https://img.shields.io/npm/dm/s3-folder-upload.svg?maxAge=2592000)]()
+[![npm](https://img.shields.io/npm/dm/s3-folder-upload.svg?maxAge=10000)]()
 
 Little script to upload statics to a S3 bucket by using official Amazon SDK.
 
 ## AWS Credentials
 
-In order to use this module, you'll need to have AWS Credentials. You can load them, two ways:
+In order to use this module, you'll need to have **AWS Credentials**. You can load them using one of these two ways:
 
 * By passing directly to the method as second parameter.
 * By having a ENV variable with the path to a file with the credentials.
@@ -16,17 +16,22 @@ In order to use this module, you'll need to have AWS Credentials. You can load t
 
 ## Install
 
+You can install as the package to be used in your project.
+
 ```bash
-npm install s3-folder-upload -D
+npm install s3-folder-upload
 ```
 
-In case you want to use the CLI, you can install it globally:
+If you only wanto to use it as `devDependency` remember to use `-D` flag in order to put the dependency in the right place.
+
+In case you want to use it only the CLI, you can could use it directly using `npx`:
 
 ```bash
 npx s3-folder-upload
 ```
 
-## Require
+## Use as a package
+
 ```javascript
 const s3FolderUpload = require('s3-folder-upload')
 // ES6: import s3FolderUpload from 's3-folder-upload'
@@ -46,13 +51,14 @@ const options = {
   useIAMRoleCredentials: false
 }
 
-// optional cloudfront invalidation rule
-const invalidation = {
-  awsDistributionId: "<Your CloudFront Distribution Id>",
-  awsInvalidationPath: "<The Path to Invalidate>"
+// optional options by file
+const filesOptions: {
+  'index.html': {
+    'Cache-Control': 'public, max-age=300'
+  }
 }
 
-s3FolderUpload(directoryName, credentials, options, invalidation)
+s3FolderUpload(directoryName, credentials, options, filesOptions)
 ```
 
 ## Options
@@ -84,7 +90,8 @@ const options = {
 s3FolderUpload(directoryName, credentials, options)
 ```
 
-## CLI
+## Use as CLI
+
 ```bash
 s3-folder-upload <folder>
 
@@ -108,12 +115,6 @@ s3-folder-upload statics
     s3-folder-upload <folder> <credentials parameters> --useFoldersForFileTypes=false
     ```
 
-**For CloudFront invalidation**
-
-* you can pass the needed info via command line parameters, the invalidation needs both parameters:
-    ```bash
-    s3-folder-upload <folder> <credentials parameters> --awsDistributionId=<distributionId> --awsInvalidationPath="/js/*"
-
 ### Environment Variables
 `S3_FOLDER_UPLOAD_LOG`: You could specify the level of logging for the library.
 * `none`: No logging output
@@ -130,15 +131,3 @@ If you use the library programatically, this ENVIRONEMNT_VARIABLE will be read a
 ```
 S3_FOLDER_UPLOAD_LOG=only_errors node upload-script.js
 ```
-
-## Wish list
-
-- [x] Upload a entire folder to S3 instead file
-- [x] Async upload of files to improve time
-- [x] Detect automatically the content type of (limited support)
-- [x] Return the list of files uploaded with the final URL
-- [x] Better support for parameters with the CLI
-- [ ] Improve content type function in order to get more and better types of files
-- [ ] Avoid to re-upload files if they didn't change
-- [ ] Check if cache is blocking updates of statics on website.
-- [ ] Map uploaded paths to create a default invalidation paths rule in CloudFront.
