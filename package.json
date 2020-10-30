@@ -1,6 +1,6 @@
 {
   "name": "s3-folder-upload",
-  "version": "3.0.0",
+  "version": "3.0.0-beta.2",
   "description": "Upload statics to S3 server",
   "main": "index.js",
   "license": "ISC",
