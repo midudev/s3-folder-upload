@@ -118,8 +118,8 @@ s3-folder-upload statics
 ### Environment Variables
 `S3_FOLDER_UPLOAD_LOG`: You could specify the level of logging for the library.
 * `none`: No logging output
-* `only_errors`: Only errors are logged
-* `all` (default): Errors, progress and useful messages are logged.
+* `only_errors` (*default* on `CI`): Only errors are logged
+* `all` (*default*): Errors, progress and useful messages are logged.
 
 Example of use:
 ```
