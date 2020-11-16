@@ -4,7 +4,7 @@
 [![npm version](https://badge.fury.io/js/s3-folder-upload.svg)](https://badge.fury.io/js/s3-folder-upload)
 [![npm](https://img.shields.io/npm/dm/s3-folder-upload.svg?maxAge=2592000)]()
 
-Little script to upload statics to a S3 bucket by using official Amazon SDK.
+A little script to upload statics to a S3 bucket by using the official Amazon SDK.
 
 ## AWS Credentials
 
@@ -27,9 +27,11 @@ npx s3-folder-upload
 ```
 
 ## Require
+
 ```javascript
 const s3FolderUpload = require('s3-folder-upload')
-// ES6: import s3FolderUpload from 's3-folder-upload'
+// or the ES6 way
+// import s3FolderUpload from 's3-folder-upload'
 
 const directoryName = 'statics'
 // I strongly recommend to save your credentials on a JSON or ENV variables, or command line args
@@ -56,35 +58,34 @@ s3FolderUpload(directoryName, credentials, options, invalidation)
 ```
 
 ## Options
-`useFoldersForFileTypes` (default: `true`) - Upload files to a specific subdirectory according to its file type.
 
-`useIAMRoleCredentials` (default: `false`) - It will ignore all the credentials passed via parameters or environment variables in order to use the instance IAM credentials profile.
+- `useFoldersForFileTypes` (default: `true`): Upload files to a specific subdirectory according to its file type.
+- `useIAMRoleCredentials` (default: `false`): It will ignore all the credentials passed via parameters or environment variables in order to use the instance IAM credentials profile.
+- `uploadFolder` (default: `undefined`): If it's specified, the statics will be uploaded to the folder, so if you upload `static.js` to `https://statics.s3.eu-west-1.amazonaws.com` with a `uploadFolder` with value `my-statics` the file will be uploaded to: `https://statics.s3.eu-west-1.amazonaws.com/my-statics/static.js`.
+- `ACL` (default: `public-read`): It defines which AWS accounts or groups are granted access and the type of access.
+- `CacheControl` (default: `public, max-age=31536000`): HTTP header holds directives (instructions) for caching in both requests and responses.
+- `Expires` (default: `31536000`): Header contains the date/time after which the response is considered stale. If there is a Cache-Control header with the max-age or s-maxage directive in the response, the Expires header is ignored.
 
-`uploadFolder` (default: `undefined`) - If it's specified, the statics will be uploaded to the folder, so if you upload `static.js` to `https://statics.s3.eu-west-1.amazonaws.com` with a `uploadFolder` with value `my-statics` the file will be uploaded to: `https://statics.s3.eu-west-1.amazonaws.com/my-statics/static.js`.
-
-`ACL` (default: `public-read`) - It defines which AWS accounts or groups are granted access and the type of access.
-
-`Cache-Control` (default: `public, max-age=31536000`) - HTTP header holds directives (instructions) for caching in both requests and responses.
-
-`Expires` (default: `31536000`) - Header contains the date/time after which the response is considered stale. If there is a Cache-Control header with the max-age or s-maxage directive in the response, the Expires header is ignored.
-
-If you use programatically the library, you could overwrite the `ACL`, `Cache-Control` and `Expires` values to file level.
+If you use programatically the library, you could overwrite the `ACL`, `CacheControl` and `Expires` values to file level.
 
 ```javascript
 const options = {
   useFoldersForFileTypes: false,
   useIAMRoleCredentials: false,
-  filesOptions: {
-    'index.html': {
-      'Cache-Control': 'public, max-age=300'
-    }
+}
+
+const filesOptions: {
+  'index.html': {
+    CacheControl: 'public, max-age=300',
+    Expires: new Date("Fri, 01 Jan 1971 00:00:00 GMT")
   }
 }
 
-s3FolderUpload(directoryName, credentials, options)
+s3FolderUpload(directoryName, credentials, options, filesOptions)
 ```
 
 ## CLI
+
 ```bash
 s3-folder-upload <folder>
 
@@ -115,6 +116,7 @@ s3-folder-upload statics
     s3-folder-upload <folder> <credentials parameters> --awsDistributionId=<distributionId> --awsInvalidationPath="/js/*"
 
 ### Environment Variables
+
 `S3_FOLDER_UPLOAD_LOG`: You could specify the level of logging for the library.
 * `none`: No logging output
 * `only_errors`: Only errors are logged
