@@ -16,7 +16,7 @@
     "type": "git",
     "url": "git@github.com:miduga/s3-folder-upload.git"
   },
-  "author": "Miguel Ángel Durán <miguelangel.duran@scmspain.com>",
+  "author": "Miguel Ángel Durán <miduga@gmail.com>",
   "bugs": {
     "url": "https://github.com/miduga/s3-folder-upload/issues"
   },
