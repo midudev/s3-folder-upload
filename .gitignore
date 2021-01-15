@@ -2,3 +2,4 @@
 node_modules/
 aws-credentials.json
 package-lock.json
+.npmrc
