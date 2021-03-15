@@ -74,7 +74,7 @@ const options = {
   useIAMRoleCredentials: false,
 }
 
-const filesOptions: {
+const filesOptions = {
   'index.html': {
     CacheControl: 'public, max-age=300',
     Expires: new Date("Fri, 01 Jan 1971 00:00:00 GMT")
